@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Digital Portfolio</title>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+    
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Italianno&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: "Poppins", sans-serif;
+             font-weight: 400;
+             font-style: normal;
+            color: #ffffff;
+            line-height: 1.6;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ff9800;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 20px;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Home Section */
+        #home {
+            color: #ffffff;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        #home h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        #home p {
+            font-size: 1.5rem;
+            animation: slideIn 2s ease-in-out;
+        }
+
+        /* About Me Section */
+        #about {
+            background: rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+        }
+
+        .profile img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 4px solid #ff9800;
+            animation: bounce 2s infinite;
+        }
+
+        #about p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Technical Skills Section */
+        #skills {
+            background: rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+        }
+
+        .skill {
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: left;
+        }
+
+        .skill h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #444;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background-color: #ff9800;
+            border-radius: 10px;
+            animation: fillBar 2s ease-in-out;
+        }
+
+        @keyframes fillBar {
+            from { width: 0%; }
+            to { width: 100%; }
+        }
+
+        /* Hire Me Section */
+        #hire {
+            background: rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+        }
+
+        #hire h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        #hire p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #hire .email {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        #hire .email i {
+            font-size: 1.5rem;
+            color: #ff9800;
+        }
+
+        #hire .email a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        #hire .email a:hover {
+            color: #ff9800;
+        }
+
+        /* Countdown Project Section */
+        #countdown {
+            background: rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+        }
+
+        .countdown-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .countdown-container h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .countdown div {
+            text-align: center;
+        }
+
+        .countdown div span {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .countdown div small {
+            font-size: 1rem;
+            color: #ff9800;
+        }
+
+        /* Contact Me Section */
+        #contact {
+            background: rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+        }
+
+        #contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 300px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            padding: 10px 20px;
+            background-color: #ff9800;
+            color: #1a1a1a;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #e68900;
+        }
+
+        /* Download Resume Section */
+        #resume {
+            background: rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+        }
+
+        #resume h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        #resume a.btn {
+            padding: 10px 20px;
+            background-color: #ff9800;
+            color: #1a1a1a;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        #resume a.btn:hover {
+            background-color: #e68900;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#home">🏠 Home</a></li>
+            <li><a href="#about">👤 About Me</a></li>
+            <li><a href="#skills">💻 Technical Skills</a></li>
+            <li><a href="#hire">💼 Hire Me</a></li>
+            <li><a href="#countdown">⏳ Countdown Project</a></li>
+            <li><a href="#contact">📞 Contact Me</a></li>
+            <li><a href="#resume">📄 Download Resume</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <h1>Welcome to My Portfolio! 🚀</h1>
+        <p>Hi, I'm a passionate developer ready to create amazing things! 🌟</p>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about">
+        <h2>👤 About Me</h2>
+        <div class="profile">
+            <img src="umar.jpg" alt="Profile Picture">
+            <p>Hi, I'm Umar Mohammed! A highly motivated individual with a strong foundation in web development technologies like HTML, CSS, and JavaScript. I love building creative and functional websites! 💻✨</p>
+        </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section id="skills">
+        <h2>💻 Technical Skills</h2>
+        <div class="skill">
+            <h3>HTML</h3>
+            <div class="skill-bar">
+                <div class="skill-progress" style="width: 95%;"></div>
+            </div>
+        </div>
+        <div class="skill">
+            <h3>CSS</h3>
+            <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%;"></div>
+            </div>
+        </div>
+        <div class="skill">
+            <h3>JavaScript</h3>
+            <div class="skill-bar">
+                <div class="skill-progress" style="width: 85%;"></div>
+            </div>
+        </div>
+        <div class="skill">
+            <h3>Python</h3>
+            <div class="skill-bar">
+                <div class="skill-progress" style="width: 80%;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hire Me Section -->
+    <section id="hire">
+        <h2>💼 Hire Me</h2>
+        <p>Looking for a passionate developer to join your team? Let's work together to create something amazing! 🚀</p>
+        <div class="email">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:umarmohammed2402@email.com">umarmohammed2402@email.com</a>
+        </div>
+    </section>
+
+    <!-- Countdown Project Section -->
+    <section id="countdown">
+        <div class="countdown-container">
+            <h2>⏳ Countdown Timer</h2>
+            <div class="countdown">
+                <div>
+                    <span id="days">00</span>
+                    <small>Days</small>
+                </div>
+                <div>
+                    <span id="hours">00</span>
+                    <small>Hours</small>
+                </div>
+                <div>
+                    <span id="minutes">00</span>
+                    <small>Minutes</small>
+                </div>
+                <div>
+                    <span id="seconds">00</span>
+                    <small>Seconds</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Me Section -->
+    <section id="contact">
+        <h2>📞 Contact Me</h2>
+        <div class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message 📨</button>
+        </div>
+    </section>
+
+    <!-- Download Resume Section -->
+    <section id="resume">
+        <h2>📄 Download Resume</h2>
+        <a href="Umar's Resume.pdf" download class="btn">Download Resume 📥</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Umar Mohammed. All rights reserved. 🚀</p>
+    </footer>
+
+    <!-- Internal JavaScript for Countdown -->
+    <script>
+        // Countdown Timer
+        const countdown = () => {
+            const targetDate = new Date('2024-12-31T23:59:59').getTime();
+            const now = new Date().getTime();
+            const timeLeft = targetDate - now;
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = String(days).padStart(2, '0');
+            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+        };
+
+        setInterval(countdown, 1000);
+    </script>
+</body>
+</html>
